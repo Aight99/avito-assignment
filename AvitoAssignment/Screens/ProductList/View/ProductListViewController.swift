@@ -7,13 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ProductListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemIndigo
     }
 
-
 }
 
+extension ProductListViewController: ProductListViewInput {
+
+    func setupList(products: [Product]) {
+        // TODO: doto
+    }
+
+}
