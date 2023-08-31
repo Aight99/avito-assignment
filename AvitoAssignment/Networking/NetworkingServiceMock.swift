@@ -11,10 +11,12 @@ import Foundation
 class MockNetworkingService {
     private let urlSession: URLSession
     private let responseDelay: DispatchTimeInterval
+    private let isFailing: Bool
 
-    init(urlSession: URLSession = .shared, delaySeconds: Int = 0) {
+    init(urlSession: URLSession = .shared, delaySeconds: Int = 0, isFailing: Bool = false) {
         self.urlSession = urlSession
         self.responseDelay = DispatchTimeInterval.seconds(delaySeconds)
+        self.isFailing = isFailing
     }
 
 }
@@ -31,8 +33,12 @@ extension MockNetworkingService: NetworkingService {
             Product(id: 5, title: "Стажировка в авито", rublePrice: 1000000000, locationName: "Авито-сити", imageUrl: "https://www.avito.st/s/interns-ios/images/1.png", creationDate: Date()),
         ]
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + responseDelay) {
-            completion(.success(stubProducts))
+        DispatchQueue.main.asyncAfter(deadline: .now() + responseDelay) { [weak self] in
+            if self?.isFailing ?? false {
+                completion(.failure(RequestProcessorError.parsingFail))
+            } else {
+                completion(.success(stubProducts))
+            }
         }
     }
 
