@@ -13,9 +13,9 @@ final class AppCoordinator {
 
     func buildEntryPoint() -> UIViewController {
         let productListScreen = ProductListAssembly.build(screenOutput: self)
-        let navigatonController = UINavigationController(rootViewController: productListScreen)
-        self.navigationController = navigatonController
-        return navigatonController
+        let navigationController = UINavigationController(rootViewController: productListScreen)
+        self.navigationController = navigationController
+        return navigationController
     }
 
     private func openDetailsScreen() {
