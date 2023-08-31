@@ -19,7 +19,8 @@ final class AppCoordinator {
     }
 
     private func openDetailsScreen() {
-        // TODO: push to navC
+        let vc = DetailsAssembly.build(screenOutput: self)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
 }
@@ -29,6 +30,14 @@ extension AppCoordinator: ProductListOutput {
     func askToOpenDetails(productId: Int) {
         // TODO: pass productId
         openDetailsScreen()
+    }
+
+}
+
+extension AppCoordinator: DetailsOutput {
+
+    func askToClose() {
+        // TODO: i don't know
     }
 
 }

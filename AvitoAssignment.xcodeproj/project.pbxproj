@@ -12,6 +12,9 @@
 		2BF37F8C2A98B25C00BD887D /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF37F8B2A98B25C00BD887D /* ProductListViewController.swift */; };
 		2BF37F912A98B26000BD887D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BF37F902A98B26000BD887D /* Assets.xcassets */; };
 		2BF37F942A98B26000BD887D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BF37F922A98B26000BD887D /* LaunchScreen.storyboard */; };
+		F32F6E152AA2005800072542 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32F6E142AA2005800072542 /* DetailsViewController.swift */; };
+		F32F6E172AA2006800072542 /* DetailsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32F6E162AA2006800072542 /* DetailsAssembly.swift */; };
+		F32F6E192AA2007400072542 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32F6E182AA2007400072542 /* DetailsPresenter.swift */; };
 		F34112152A9E79D3008E96E3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34112142A9E79D3008E96E3 /* AppCoordinator.swift */; };
 		F34112172A9E7BDB008E96E3 /* ProductListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34112162A9E7BDB008E96E3 /* ProductListAssembly.swift */; };
 		F341121A2A9E7DCF008E96E3 /* ProductListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34112192A9E7DCF008E96E3 /* ProductListPresenter.swift */; };
@@ -36,6 +39,9 @@
 		2BF37F902A98B26000BD887D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BF37F932A98B26000BD887D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BF37F952A98B26000BD887D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F32F6E142AA2005800072542 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		F32F6E162AA2006800072542 /* DetailsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsAssembly.swift; sourceTree = "<group>"; };
+		F32F6E182AA2007400072542 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		F34112142A9E79D3008E96E3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F34112162A9E7BDB008E96E3 /* ProductListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListAssembly.swift; sourceTree = "<group>"; };
 		F34112192A9E7DCF008E96E3 /* ProductListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPresenter.swift; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 		F341120F2A9E72CD008E96E3 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				F32F6E182AA2007400072542 /* DetailsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -180,6 +187,7 @@
 		F34112102A9E72D4008E96E3 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
+				F32F6E162AA2006800072542 /* DetailsAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -187,6 +195,7 @@
 		F34112112A9E72D9008E96E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F32F6E142AA2005800072542 /* DetailsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,10 +320,13 @@
 				F34112292AA08AED008E96E3 /* DefaultNetworkingService.swift in Sources */,
 				F34112352AA1D431008E96E3 /* IconMessageView.swift in Sources */,
 				F341122D2AA0ABDE008E96E3 /* ProductCollectionView.swift in Sources */,
+				F32F6E192AA2007400072542 /* DetailsPresenter.swift in Sources */,
 				F34112172A9E7BDB008E96E3 /* ProductListAssembly.swift in Sources */,
+				F32F6E172AA2006800072542 /* DetailsAssembly.swift in Sources */,
 				F341122B2AA0927A008E96E3 /* NetworkingServiceMock.swift in Sources */,
 				2BF37F8C2A98B25C00BD887D /* ProductListViewController.swift in Sources */,
 				2BF37F882A98B25C00BD887D /* AppDelegate.swift in Sources */,
+				F32F6E152AA2005800072542 /* DetailsViewController.swift in Sources */,
 				F341121A2A9E7DCF008E96E3 /* ProductListPresenter.swift in Sources */,
 				F34112272AA08A32008E96E3 /* NetworkingService.swift in Sources */,
 				F341121C2A9E7E23008E96E3 /* ProductListContracts.swift in Sources */,

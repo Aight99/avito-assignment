@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProductViewCell: UICollectionViewCell {
+final class ProductViewCell: UICollectionViewCell {
 
     static let reuseID = "ProductViewCell"
     private(set) var productId: Int = 0
@@ -37,7 +37,7 @@ class ProductViewCell: UICollectionViewCell {
     }()
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 12)
+        label.font = .italicSystemFont(ofSize: 12)
         return label
     }()
 

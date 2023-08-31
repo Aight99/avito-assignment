@@ -33,7 +33,7 @@ extension MockNetworkingService: NetworkingService {
             Product(id: 5, title: "Стажировка в авито", rublePrice: 1000000000, locationName: "Авито-сити", imageUrl: "https://www.avito.st/s/interns-ios/images/1.png", creationDate: Date()),
         ]
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + responseDelay) { [weak self] in
+        DispatchQueue.global().asyncAfter(deadline: .now() + responseDelay) { [weak self] in
             if self?.isFailing ?? false {
                 completion(.failure(RequestProcessorError.parsingFail))
             } else {

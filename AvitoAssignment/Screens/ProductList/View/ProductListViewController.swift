@@ -15,13 +15,14 @@ private enum ScreenState {
 
 final class ProductListViewController: UIViewController {
 
+    private let loadingImage = UIImage(systemName: "rays")
+    private let errorImage = UIImage(systemName: "exclamationmark.triangle")
     private var state: ScreenState = .loading {
         didSet {
             adaptStateVisuals()
         }
     }
-    private let loadingImage = UIImage(systemName: "rays")
-    private let errorImage = UIImage(systemName: "exclamationmark.triangle")
+
     var output: ProductListViewOutput?
 
     private lazy var productCollectionView: ProductCollectionView = {
@@ -37,7 +38,8 @@ final class ProductListViewController: UIViewController {
         super.viewDidLoad()
         adaptStateVisuals()
         output?.viewDidLoad()
-        view.backgroundColor = .systemIndigo
+        productCollectionView.productCollectionDelegate = self
+        view.backgroundColor = .systemBackground
         setupSubviews()
     }
 
@@ -92,7 +94,13 @@ extension ProductListViewController: ProductListViewInput {
         productCollectionView.productList = products
         state = .normal
     }
+}
 
+extension ProductListViewController: ProductCollectionDelegate {
+    func handleTap(productId: Int) {
+        print(productId)
+        output?.handleUserTap(productId: productId)
+    }
 }
 
 private enum Constants {

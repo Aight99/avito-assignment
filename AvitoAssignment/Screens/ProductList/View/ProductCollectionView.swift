@@ -7,7 +7,13 @@
 
 import UIKit
 
-class ProductCollectionView: UICollectionView {
+protocol ProductCollectionDelegate: AnyObject {
+    func handleTap(productId: Int)
+}
+
+final class ProductCollectionView: UICollectionView {
+
+    weak var productCollectionDelegate: ProductCollectionDelegate?
 
     var productList = [Product]() {
         didSet {
@@ -57,6 +63,11 @@ extension ProductCollectionView: UICollectionViewDataSource {
         }
         cell.configure(model: productList[indexPath.row])
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let product = productList[indexPath.row]
+        productCollectionDelegate?.handleTap(productId: product.id)
     }
 }
 
