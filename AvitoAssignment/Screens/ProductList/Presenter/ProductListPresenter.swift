@@ -8,7 +8,7 @@
 import UIKit
 
 final class ProductListPresenter {
-    weak var view: UIViewController?
+    weak var view: ProductListViewInput?
     var output: ProductListOutput?
     let networkingService: NetworkingService
 
@@ -18,8 +18,18 @@ final class ProductListPresenter {
 }
 
 extension ProductListPresenter: ProductListViewOutput {
+
     func viewDidLoad() {
-        // TODO: Network call
+        networkingService.fetchProductList() { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let productList):
+                    self?.view?.setupList(products: productList)
+                case .failure(let error):
+                    self?.view?.showError(message: error.localizedDescription)
+                }
+            }
+        }
     }
 
     func handleUserTap(productId: Int) {

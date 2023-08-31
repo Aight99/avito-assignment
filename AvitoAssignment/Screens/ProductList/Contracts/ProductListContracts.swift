@@ -13,6 +13,7 @@ protocol ProductListOutput {
 
 protocol ProductListViewInput: AnyObject {
     func setupList(products: [Product])
+    func showError(message: String)
 }
 
 protocol ProductListViewOutput {

@@ -15,6 +15,7 @@ final class ProductListAssembly {
         let presenter = ProductListPresenter()
         presenter.output = screenOutput
         presenter.view = view
+        view.output = presenter
         return view
     }
 }
