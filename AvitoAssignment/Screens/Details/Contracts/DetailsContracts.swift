@@ -8,7 +8,10 @@
 import Foundation
 
 protocol DetailsOutput {
-    func askToClose()
+}
+
+protocol DetailsInput {
+    func setProduct(id: Int)
 }
 
 protocol DetailsViewInput: AnyObject {

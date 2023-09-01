@@ -61,10 +61,32 @@ class DefaultNetworkingService {
 
 extension DefaultNetworkingService: NetworkingService {
     func fetchProductList(completion: @escaping (Result<[Product], Error>) -> Void) {
-        // TODO: doto
+        let request = makeRequest("/main-page.json", method: .get)
+        let task = self.urlSession.objectTask(for: request) { (result: Result<ProductListDTO, Error>) in
+            switch result {
+            case .success(let productListDTO):
+                var products: [Product] = []
+                for productDTO in productListDTO.products {
+                    products.append(productDTO.convert())
+                }
+                completion(.success(products))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+        task.resume()
     }
 
-    func fetchExtendedProductData(completion: @escaping (Result<Product, Error>) -> Void) {
-        // TODO: doto
+    func fetchExtendedProductData(productId: Int, completion: @escaping (Result<Product, Error>) -> Void) {
+        let request = makeRequest("/details/\(productId).json", method: .get)
+        let task = self.urlSession.objectTask(for: request) { (result: Result<ProductDTO, Error>) in
+            switch result {
+            case .success(let productDTO):
+                completion(.success(productDTO.convert()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+        task.resume()
     }
 }

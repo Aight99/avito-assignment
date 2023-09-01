@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 private enum ScreenState {
     case normal
@@ -45,6 +46,7 @@ final class DetailsViewController: UIViewController {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 32)
+        label.numberOfLines = 0
         return label
     }()
     private lazy var descriptionLabel: UILabel = {
@@ -144,10 +146,10 @@ extension DetailsViewController: DetailsViewInput {
 
     func setupProductInfo(product: Product) {
         state = .normal
-        // TODO: Kingfisher :D
-        self.imageView.image = UIImage(systemName: "trash")
+        let url = URL(string: product.imageUrl)
+        self.imageView.kf.setImage(with: url)
         self.titleLabel.text = product.title
-        self.dateLabel.text = product.creationDate.russianFormat
+        self.dateLabel.text = product.creationDate
         self.priceLabel.text = "\(product.rublePrice)₽"
 
         descriptionLabel.isHidden = product.description == nil

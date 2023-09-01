@@ -11,6 +11,9 @@ protocol ProductListOutput {
     func askToOpenDetails(productId: Int)
 }
 
+protocol ProductListInput {
+}
+
 protocol ProductListViewInput: AnyObject {
     func setupList(products: [Product])
     func showError(message: String)

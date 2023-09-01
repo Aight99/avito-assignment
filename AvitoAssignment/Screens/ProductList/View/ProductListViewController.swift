@@ -98,7 +98,6 @@ extension ProductListViewController: ProductListViewInput {
 
 extension ProductListViewController: ProductCollectionDelegate {
     func handleTap(productId: Int) {
-        print(productId)
         output?.handleUserTap(productId: productId)
     }
 }

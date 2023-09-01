@@ -13,7 +13,7 @@ struct Product {
     let rublePrice: Int
     let locationName: String
     let imageUrl: String
-    let creationDate: Date
+    let creationDate: String
     let description: String?
     let sellerEmail: String?
     let sellerPhone: String?
@@ -25,7 +25,7 @@ struct Product {
         rublePrice: Int,
         locationName: String,
         imageUrl: String,
-        creationDate: Date,
+        creationDate: String,
         description: String? = nil,
         sellerEmail: String? = nil,
         sellerPhone: String? = nil,

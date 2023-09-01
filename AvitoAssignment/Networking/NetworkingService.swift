@@ -9,5 +9,5 @@ import Foundation
 
 protocol NetworkingService {
     func fetchProductList(completion: @escaping (Result<[Product], Error>) -> Void)
-    func fetchExtendedProductData(completion: @escaping (Result<Product, Error>) -> Void)
+    func fetchExtendedProductData(productId: Int, completion: @escaping (Result<Product, Error>) -> Void)
 }

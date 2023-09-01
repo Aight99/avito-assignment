@@ -36,3 +36,6 @@ extension ProductListPresenter: ProductListViewOutput {
         output?.askToOpenDetails(productId: productId)
     }
 }
+
+extension ProductListPresenter: ProductListInput {
+}

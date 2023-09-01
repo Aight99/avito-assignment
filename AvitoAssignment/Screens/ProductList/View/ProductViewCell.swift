@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class ProductViewCell: UICollectionViewCell {
 
@@ -54,10 +55,10 @@ final class ProductViewCell: UICollectionViewCell {
 
     public func configure(model: Product) {
         self.productId = model.id
-        // TODO: Kingfisher :D
-        self.imageView.image = UIImage(systemName: "trash")
+        let url = URL(string: model.imageUrl)
+        self.imageView.kf.setImage(with: url)
         self.titleLabel.text = model.title
-        self.dateLabel.text = model.creationDate.russianFormat
+        self.dateLabel.text = model.creationDate
         self.priceLabel.text = "\(model.rublePrice)₽"
     }
 

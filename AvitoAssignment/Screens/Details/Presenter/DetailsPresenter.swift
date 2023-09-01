@@ -8,6 +8,7 @@
 import Foundation
 
 final class DetailsPresenter {
+    private(set) var productId: Int = 1
     weak var view: DetailsViewInput?
     var output: DetailsOutput?
     let networkingService: NetworkingService
@@ -17,10 +18,17 @@ final class DetailsPresenter {
     }
 }
 
+extension DetailsPresenter: DetailsInput {
+
+    func setProduct(id: Int) {
+        productId = id
+    }
+}
+
 extension DetailsPresenter: DetailsViewOutput {
 
     func viewDidLoad() {
-        networkingService.fetchExtendedProductData() { [weak self] result in
+        networkingService.fetchExtendedProductData(productId: productId) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let extendedProduct):

@@ -13,14 +13,19 @@ final class AppCoordinator {
 
     func buildEntryPoint() -> UIViewController {
         let productListScreen = ProductListAssembly.build(screenOutput: self)
-        let navigationController = UINavigationController(rootViewController: productListScreen)
+//        let productListScreen = DetailsAssembly.build(screenOutput: self)
+        let vc = productListScreen.0
+        let navigationController = UINavigationController(rootViewController: vc)
         self.navigationController = navigationController
         return navigationController
     }
 
-    private func openDetailsScreen() {
-        let vc = DetailsAssembly.build(screenOutput: self)
+    private func openDetailsScreen(productId: Int) {
+        let detailsListScreen = DetailsAssembly.build(screenOutput: self)
+        let vc = detailsListScreen.0
+        let input = detailsListScreen.1
         navigationController?.pushViewController(vc, animated: true)
+        input.setProduct(id: productId)
     }
 
 }
@@ -28,16 +33,10 @@ final class AppCoordinator {
 extension AppCoordinator: ProductListOutput {
 
     func askToOpenDetails(productId: Int) {
-        // TODO: pass productId
-        openDetailsScreen()
+        openDetailsScreen(productId: productId)
     }
 
 }
 
 extension AppCoordinator: DetailsOutput {
-
-    func askToClose() {
-        // TODO: i don't know
-    }
-
 }
